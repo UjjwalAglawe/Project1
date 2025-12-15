@@ -46,7 +46,9 @@ function App() {
           ];
 
           const buttonText = button.textContent?.toLowerCase() || '';
-          const page = navItems.find(item => buttonText.includes(item));
+          const page = navItems.find(item =>
+            buttonText.includes(item)
+          );
 
           if (page) {
             setActivePage(page);
