@@ -47,16 +47,19 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-3xl font-bold text-gray-900">Operations Dashboard</h2>
-        <p className="text-gray-600 mt-1">Real-time overview of assets and operations</p>
+      <div className="bg-gradient-to-r from-slate-800 to-slate-700 rounded-lg p-6 text-white mb-6">
+        <h2 className="text-3xl font-bold">Operations Dashboard</h2>
+        <p className="text-slate-200 mt-1">Real-time overview of assets and operations</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {metrics.map((metric) => (
-          <div key={metric.title} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        {metrics.map((metric, idx) => {
+          const bgColors = ['bg-blue-50', 'bg-emerald-50', 'bg-amber-50', 'bg-cyan-50'];
+          const borderColors = ['border-blue-200', 'border-emerald-200', 'border-amber-200', 'border-cyan-200'];
+          return (
+          <div key={metric.title} className={`${bgColors[idx]} rounded-lg shadow-sm border ${borderColors[idx]} p-6`}>
             <div className="flex items-center justify-between mb-4">
-              <div className="p-3 bg-gray-50 rounded-lg">
+              <div className="p-3 bg-white rounded-lg">
                 {metric.icon}
               </div>
               <span className={`flex items-center text-sm font-medium ${
@@ -69,13 +72,14 @@ export default function Dashboard() {
             <h3 className="text-2xl font-bold text-gray-900">{metric.value}</h3>
             <p className="text-sm text-gray-600 mt-1">{metric.title}</p>
           </div>
-        ))}
+        );
+        })}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-          <div className="p-6 border-b border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-900">Recent Assets</h3>
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+          <div className="p-6 border-b border-gray-200 bg-gradient-to-r from-blue-500 to-blue-600 text-white">
+            <h3 className="text-lg font-semibold">Recent Assets</h3>
           </div>
           <div className="p-6">
             <div className="space-y-4">
@@ -96,9 +100,9 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-          <div className="p-6 border-b border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-900">Work Orders</h3>
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+          <div className="p-6 border-b border-gray-200 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white">
+            <h3 className="text-lg font-semibold">Work Orders</h3>
           </div>
           <div className="p-6">
             <div className="space-y-4">

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Layout from './components/Layout';
+import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import Assets from './components/Assets';
 import Production from './components/Production';
@@ -8,10 +9,12 @@ import Compliance from './components/Compliance';
 import Analytics from './components/Analytics';
 
 function App() {
-  const [activePage, setActivePage] = useState('dashboard');
+  const [activePage, setActivePage] = useState('home');
 
   const renderPage = () => {
     switch (activePage) {
+      case 'home':
+        return <Home />;
       case 'dashboard':
         return <Dashboard />;
       case 'assets':
@@ -25,37 +28,23 @@ function App() {
       case 'analytics':
         return <Analytics />;
       default:
-        return <Dashboard />;
+        return <Home />;
     }
   };
 
   return (
-    <div
-      onClick={(e) => {
-        const target = e.target;
-        const button = target.closest('button');
-
-        if (button) {
-          const navItems = [
-            'dashboard',
-            'assets',
-            'production',
-            'maintenance',
-            'compliance',
-            'analytics',
-          ];
-
-          const buttonText = button.textContent?.toLowerCase() || '';
-          const page = navItems.find(item =>
-            buttonText.includes(item)
-          );
-
-          if (page) {
-            setActivePage(page);
-          }
+    <div onClick={(e) => {
+      const target = e.target;
+      const button = target.closest('button');
+      if (button) {
+        const navItems = ['home', 'dashboard', 'assets', 'production', 'maintenance', 'compliance', 'analytics'];
+        const buttonText = button.textContent?.toLowerCase() || '';
+        const page = navItems.find(item => buttonText.includes(item));
+        if (page) {
+          setActivePage(page);
         }
-      }}
-    >
+      }
+    }}>
       <Layout>
         {renderPage()}
       </Layout>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Search, Filter, Edit, Trash2 } from 'lucide-react';
 
 export default function Assets() {
-  const [activeTab, setActiveTab] = useState('list')
+  const [activeTab, setActiveTab] = useState('list');
   const [searchTerm, setSearchTerm] = useState('');
 
   const assets = [
@@ -44,9 +44,9 @@ export default function Assets() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-3xl font-bold text-gray-900">Asset Management</h2>
-        <p className="text-gray-600 mt-1">Register and manage oil & gas assets</p>
+      <div className="bg-gradient-to-r from-indigo-600 to-blue-600 rounded-lg p-6 text-white mb-6">
+        <h2 className="text-3xl font-bold">Asset Management</h2>
+        <p className="text-indigo-100 mt-1">Register and manage oil & gas assets</p>
       </div>
 
       <div className="bg-white rounded-lg shadow-sm border border-gray-200">

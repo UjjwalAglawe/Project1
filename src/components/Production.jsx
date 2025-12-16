@@ -23,13 +23,13 @@ export default function Production() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <div>
-          <h2 className="text-3xl font-bold text-gray-900">Production Management</h2>
-          <p className="text-gray-600 mt-1">Plan and track production operations</p>
+        <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-lg p-6 text-white flex-1">
+          <h2 className="text-3xl font-bold">Production Management</h2>
+          <p className="text-emerald-100 mt-1">Plan and track production operations</p>
         </div>
         <button
           onClick={() => setShowAddForm(!showAddForm)}
-          className="flex items-center gap-2 px-4 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors ml-6"
         >
           <Plus size={20} />
           {activeTab === 'plans' ? 'New Plan' : 'Add Record'}

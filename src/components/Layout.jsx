@@ -1,4 +1,5 @@
 import {
+  Home,
   LayoutDashboard,
   Package,
   TrendingUp,
@@ -9,6 +10,7 @@ import {
 
 export default function Layout({ children }) {
   const navItems = [
+    { icon: <Home size={20} />, label: 'Home', id: 'home' },
     { icon: <LayoutDashboard size={20} />, label: 'Dashboard', id: 'dashboard' },
     { icon: <Package size={20} />, label: 'Assets', id: 'assets' },
     { icon: <TrendingUp size={20} />, label: 'Production', id: 'production' },

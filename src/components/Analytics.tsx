@@ -36,9 +36,9 @@ export default function Analytics() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-3xl font-bold text-gray-900">Analytics Dashboard</h2>
-        <p className="text-gray-600 mt-1">Performance insights and predictive analytics</p>
+      <div className="bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg p-6 text-white mb-6">
+        <h2 className="text-3xl font-bold">Analytics Dashboard</h2>
+        <p className="text-cyan-100 mt-1">Performance insights and predictive analytics</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
