@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Plus, Calendar, TrendingUp, BarChart } from 'lucide-react';
+import PlanForm from './PlanForm';
+import RecordForm from './RecordForm';
 
 export default function Production() {
   const [activeTab, setActiveTab] = useState('plans');
@@ -131,86 +133,15 @@ export default function Production() {
       </div>
 
       {showAddForm && (
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
-            {activeTab === 'plans' ? 'Create Production Plan' : 'Add Production Record'}
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Asset</label>
-              <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
-                <option value="">Select Asset</option>
-                <option value="RIG-001">RIG-001 - North Sea Rig Alpha</option>
-                <option value="RIG-002">RIG-002 - West Texas Rig Beta</option>
-                <option value="RIG-008">RIG-008 - Gulf Platform Echo</option>
-              </select>
-            </div>
-            {activeTab === 'plans' ? (
-              <>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Planned Volume</label>
-                  <input
-                    type="number"
-                    placeholder="e.g., 5000"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Start Date</label>
-                  <input
-                    type="date"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">End Date</label>
-                  <input
-                    type="date"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  />
-                </div>
-              </>
-            ) : (
-              <>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Actual Volume</label>
-                  <input
-                    type="number"
-                    placeholder="e.g., 4980"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Date</label>
-                  <input
-                    type="date"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  />
-                </div>
-              </>
-            )}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Unit</label>
-              <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
-                <option value="barrels">Barrels</option>
-                <option value="barrels/day">Barrels per Day</option>
-                <option value="mcf">MCF (Natural Gas)</option>
-              </select>
-            </div>
-          </div>
-          <div className="flex gap-3 mt-6">
-            <button className="px-6 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors">
-              {activeTab === 'plans' ? 'Create Plan' : 'Add Record'}
-            </button>
-            <button
-              onClick={() => setShowAddForm(false)}
-              className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
-      )}
+  <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    {activeTab === 'plans' ? (
+      <PlanForm onCancel={() => setShowAddForm(false)} />
+    ) : (
+      <RecordForm onCancel={() => setShowAddForm(false)} />
+    )}
+  </div>
+)}
+
 
       <div className="bg-white rounded-lg shadow-sm border border-gray-200">
         <div className="border-b border-gray-200">
