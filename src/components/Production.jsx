@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Plus, Calendar, TrendingUp, BarChart } from 'lucide-react';
 import PlanForm from './PlanForm';
 import RecordForm from './RecordForm';
+import PlannedVsActualChart from './PlannedVsActualChart';
 
 export default function Production() {
   const [activeTab, setActiveTab] = useState('plans');
@@ -76,7 +77,7 @@ export default function Production() {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+      {/* <div className="bg-white rounded-lg shadow-sm border border-gray-200">
         <div className="p-6 border-b border-gray-200">
           <h3 className="text-lg font-semibold text-gray-900 mb-6">Actual vs Planned Production Comparison</h3>
           <div className="space-y-6">
@@ -130,7 +131,7 @@ export default function Production() {
             })}
           </div>
         </div>
-      </div>
+      </div> */}
 
       {showAddForm && (
   <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
@@ -251,6 +252,7 @@ export default function Production() {
           )}
         </div>
       </div>
+      <PlannedVsActualChart/>
     </div>
   );
 }
